@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubble</title>
+</head>
+
+<body>
+    <h2>Event Bubble vai</h2>
+    <section id="section-cotainer">
+        <h4>Bubble vai list</h4>
+        <ul id="list-container">
+            <li class="item">Lorem, ipsum.</li>
+            <li id="second-item" class="item">Officia, cumque.</li>
+            <li class="item">Consequatur, quidem.</li>
+            <li class="item">Consequuntur, eaque.</li>
+            <li class="item">Officiis, assumenda?</li>
+            <li class="item">Possimus, accusamus.</li>
+        </ul>
+    </section>
+    <script>
+        document.getElementById('second-item').addEventListener('click', function (event) {
+            console.log('second item clicked');
+            event.stopImmediatePropagation();
+            //event.stopPropagation(); //event bubble k stop korbe stopPropagation()
+        });
+        document.getElementById('second-item').addEventListener('click', function (event) {
+            console.log('second2 item clicked');
+
+        });
+        document.getElementById('second-item').addEventListener('click', function (event) {
+            console.log('second3 item clicked');
+
+        });
+
+        //ul
+        document.getElementById('list-container').addEventListener('click', function () {
+            console.log('ul item clicked');
+        });
+        //section
+        document.getElementById('section-cotainer').addEventListener('click', function () {
+            console.log('ul section item clicked');
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+<!-- 1) what is event bubble?
+Ans: jokhon onkgula parant and child er moddhe jodi event handler add kora hoy tahole aste aste prothome capture korar pore shobcheye lowest element re shobar age event tare trigger korbe tarpor tar uporer ta tar uporer ta evabe kore uporer dike event gulare korte thakbe etare event bubble bole .
+
+2) How to stop bubble event?
+ans: event bubble k stop korbe stopPropagation() function.
+means uporer dike r jabena. 
+but onkgula same naamer  event handlar thakle tar ashe pasher gulare show korabe . oita immidiately off korar jonno 
+stopImmediatePropagation() eta use korbo .
+-->
